@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import {HttpModule} from "@angular/http";
 import {routes} from "./app.routes";
 import {RouterModule} from "@angular/router";
-import {MenubarModule} from "primeng/primeng";
+import {ButtonModule, MenubarModule} from "primeng/primeng";
 import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
 import {DashboardModule} from "./dashboard/dashboard.module";
 import {AuthenticationModule} from "./authentication/authentication.module";
@@ -18,7 +18,8 @@ import {AuthenticationModule} from "./authentication/authentication.module";
     MenubarModule,
     AngularFontAwesomeModule,
     DashboardModule,
-    AuthenticationModule
+    AuthenticationModule,
+    ButtonModule
   ],
   declarations: [
     AppComponent

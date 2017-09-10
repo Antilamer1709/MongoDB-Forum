@@ -8,9 +8,9 @@ export const PostRoutes: Route[] = [
     path: 'post',
     component: PostComponent,
     children: [
-      { path: ':id', component: OpenPostComponent },
       { path: 'new', component: EditPostComponent },
-      { path: 'edit/:id', component: EditPostComponent }
+      { path: 'edit/:id', component: EditPostComponent },
+      { path: ':id', component: OpenPostComponent }
     ]
   }
 ];

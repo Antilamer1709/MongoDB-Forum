@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+.ui-menuitem-custom {
+  float: left !important;
+  width: 100% !important;
+}
+
+.forumImage {
+  height: 30px;
+  cursor: pointer;
+}
+
+.dashboardLink {
+  text-decoration: none !important;
+  margin-right: 100px;
+}
+
+.ui-menuitem.ui-widget.ui-corner-all {
+  margin: 0.35em 0 !important;
+}
+
+.ui-menu.ui-corner-all{
+  border-radius: 0 !important;
+}
+
+.activeLink {
+  color: #014c8c !important;
+  background-color: #e1e4ea;
+}
