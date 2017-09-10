@@ -1,0 +1,7 @@
+.idea/
+.mvn/
+mongoDbForum.iml
+mvnw
+mvnw.cmd
+rebel.xml
+node_modules
