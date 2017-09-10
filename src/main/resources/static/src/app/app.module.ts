@@ -7,6 +7,8 @@ import {routes} from "./app.routes";
 import {RouterModule} from "@angular/router";
 import {DashboardService} from "./dashboard/dashboard.service";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {MenubarModule} from "primeng/primeng";
+import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,9 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
     BrowserModule,
     HttpModule,
     RouterModule.forRoot( routes ),
+    MenubarModule,
+    AngularFontAwesomeModule,
+
   ],
   providers: [
     DashboardService
