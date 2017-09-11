@@ -8,6 +8,8 @@ import {CommonComponent} from "./common/common-component";
 })
 export class AppComponent extends CommonComponent implements OnInit  {
 
+  public loggedUser: boolean = false;
+
   constructor() {
     super();
   }

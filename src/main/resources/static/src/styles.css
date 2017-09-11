@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  color: #3e3e44 !important;
+}
 
 .ui-menuitem-custom {
   float: left !important;
@@ -8,12 +11,12 @@
 .forumImage {
   height: 30px;
   cursor: pointer;
+  margin-right: 80px;
+  margin-left: 20px;
 }
 
 .dashboardLink {
   text-decoration: none !important;
-  margin-right: 80px;
-  margin-left: 20px;
 }
 
 .ui-menuitem.ui-widget.ui-corner-all {
@@ -32,4 +35,56 @@
 .authenticationButton {
   float: right;
   margin-top: 4px;
+}
+
+.authenticationDiv {
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 500px;
+  height: 450px;
+  margin: auto;
+  background-color: #F7F7F9;
+  border-radius: 5%;
+}
+
+.registrationHeader {
+  margin-left: 110px !important;
+  margin-top: 25px;
+}
+
+.loginHeader {
+  margin-left: 170px !important;
+  margin-top: 60px;
+}
+
+.registrationDiv {
+  margin-top: 25px;
+  margin-left: 80px !important;
+}
+
+.loginDiv {
+  margin-top: 25px;
+  margin-left: 80px !important;
+}
+
+.marginBottom25 {
+  margin-bottom: 25px !important;
+}
+
+.submitRegistration {
+  margin-bottom: 25px;
+  margin-left: 100px;
+}
+
+.rememberMe {
+  margin-bottom: 90px !important;
+  margin-left: 75px;
+}
+
+label.ui-chkbox-label {
+  margin: 0 !important;
 }

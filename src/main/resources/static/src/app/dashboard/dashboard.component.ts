@@ -18,14 +18,14 @@ export class DashboardComponent extends CommonComponent implements OnInit {
   ngOnInit() {
 
 
-    this.dashboardService.getHello().subscribe(
-      data => {
-        this.hello = data.hello;
-      },
-      error => {
-        this.handleException(error);
-      }
-    );
+    // this.dashboardService.getHello().subscribe(
+    //   data => {
+    //     this.hello = data.hello;
+    //   },
+    //   error => {
+    //     this.handleException(error);
+    //   }
+    // );
   }
 
 }

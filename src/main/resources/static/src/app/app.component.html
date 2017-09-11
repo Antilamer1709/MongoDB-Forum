@@ -5,14 +5,19 @@
       <img src="assets/images/forum.png" class="forumImage">
     </a>
 
-    <a routerLink="/post/new" [routerLinkActive]="'activeLink'" class="btn btn-default">
+    <a routerLink="/post/new" [routerLinkActive]="'activeLink'" class="btn btn-default colorGray">
       Add Post
     </a>
 
     <div class="authenticationButton">
       <button *ngIf="loggedUser" pButton label="Logout" icon="fa-sign-out" type="button"></button>
 
-      <button pButton label="Log in" icon="fa-sign-in" type="button"></button>
+      <a routerLink="authentication/login" class="dashboardLink">
+        <button pButton label="Log in" icon="fa-sign-in" type="button"></button>
+      </a>
+      <a routerLink="authentication/registration" class="dashboardLink">
+        <button pButton label="Registration" icon="fa-user-plus" type="button"></button>
+      </a>
     </div>
 
   </p-menubar>
