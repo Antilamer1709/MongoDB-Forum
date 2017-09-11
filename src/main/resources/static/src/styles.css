@@ -88,3 +88,8 @@ body {
 label.ui-chkbox-label {
   margin: 0 !important;
 }
+
+.colorLinkMenu {
+  color: #356a93 !important;
+  font-weight: bold !important;
+}
