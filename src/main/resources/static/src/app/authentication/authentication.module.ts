@@ -7,6 +7,8 @@ import {RouterModule} from "@angular/router";
 import {InputTextModule} from "primeng/primeng";
 import {ButtonModule} from "primeng/components/button/button";
 import {CheckboxModule} from "primeng/components/checkbox/checkbox";
+import {FormsModule} from "@angular/forms";
+import {RegistrationService} from "./registration/registration.service";
 
 @NgModule({
   imports: [
@@ -14,12 +16,16 @@ import {CheckboxModule} from "primeng/components/checkbox/checkbox";
     RouterModule,
     InputTextModule,
     ButtonModule,
-    CheckboxModule
+    CheckboxModule,
+    FormsModule
   ],
   declarations: [
     LoginComponent,
     RegistrationComponent,
     AuthenticationComponent
+  ],
+  providers: [
+    RegistrationService
   ]
 })
 export class AuthenticationModule { }
