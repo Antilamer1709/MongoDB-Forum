@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   color: #3e3e44 !important;
+  font-family: sans-serif !important;
 }
 
 .ui-menuitem-custom {
@@ -91,7 +92,20 @@ label.ui-chkbox-label {
   margin: 0 !important;
 }
 
-.colorLinkMenu {
+.menuLink {
   color: #356a93 !important;
-  font-weight: bold !important;
+  font-weight: 600 !important;
+}
+.menuLink:hover {
+  background-color: #d5deef;
+}
+
+.editPostContainer {
+  padding: 50px 150px;
+}
+
+.postHeader {
+  background-color: #F7F7F9;
+  padding: 20px 100px;
+  text-align: center;
 }
