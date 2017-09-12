@@ -1,4 +1,4 @@
-<form class="form-horizontal">
+<form class="form-horizontal" novalidate #form="ngForm" (ngSubmit)="login(form)">
 
   <div class="row loginHeader">
     <h1>Login:</h1>
@@ -8,21 +8,23 @@
 
     <div class="form-group marginBottom25">
       <span class="ui-float-label">
-        <input id="login" type="text" size="30" pInputText>
-        <label for="login">Login</label>
+        <input [(ngModel)]="loginModel.username" id="username" name="username" type="text" size="30" pInputText>
+        <label for="username">Login</label>
       </span>
     </div>
 
     <div class="form-group marginBottom25">
       <span class="ui-float-label">
-        <input id="password" type="password" size="30" pInputText>
+        <input [(ngModel)]="loginModel.password" id="password" name="password" type="password" size="30" pInputText>
         <label for="password">Password</label>
       </span>
     </div>
 
     <div class="form-group rememberMe">
       <div class="ui-g-12">
-        <p-checkbox name="rememberMe" value="Remember Me" label="Remember Me" inputId="rememberMe"></p-checkbox>
+        <p-checkbox [(ngModel)]="loginModel.username" name="rememberMe"
+                    value="Remember Me" label="Remember Me" inputId="rememberMe">
+        </p-checkbox>
       </div>
     </div>
 

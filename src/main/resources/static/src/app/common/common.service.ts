@@ -53,6 +53,12 @@ export class CommonService {
     return headers;
   }
 
+  protected getEncodedHeaders(): Headers {
+    let headers = new Headers();
+    headers.append( 'Content-Type', 'application/x-www-form-urlencoded' );
+    return headers;
+  }
+
   protected extractData(res: Response) {
     let body = JSON.parse(res.text(), (key, value) => {
       key = key.toString();

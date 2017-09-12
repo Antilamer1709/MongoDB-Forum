@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class RegistrationDTO implements Serializable {
 
-    private String login;
+    private String username;
 
     private String fullName;
 
@@ -15,12 +15,12 @@ public class RegistrationDTO implements Serializable {
     private String confirmPassword;
 
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFullName() {
@@ -54,13 +54,13 @@ public class RegistrationDTO implements Serializable {
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
-    
+
     public boolean hasNullFields() {
-        return login == null || fullName == null || email == null || password == null || confirmPassword == null;
+        return username == null || fullName == null || email == null || password == null || confirmPassword == null;
     }
-    
+
     public boolean hasEmptyFields() {
-        return login.equals("") || fullName.equals("") || email.equals("") || password.equals("")
+        return username.equals("") || fullName.equals("") || email.equals("") || password.equals("")
                 || confirmPassword.equals("");
     }
 }

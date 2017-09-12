@@ -33,7 +33,7 @@ public class AuthenticationBOImpl implements AuthenticationBO {
 
     private void initUser(User user, RegistrationDTO registrationDTO) {
         user.setFullName(registrationDTO.getFullName());
-        user.setLogin(registrationDTO.getLogin());
+        user.setUsername(registrationDTO.getUsername());
         user.setEmail(registrationDTO.getEmail());
         user.setPassword(registrationDTO.getPassword()); //TODO implement encoding!
         user.setRegistrationDate(new Date());

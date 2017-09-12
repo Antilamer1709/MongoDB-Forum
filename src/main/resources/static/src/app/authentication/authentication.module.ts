@@ -9,6 +9,8 @@ import {ButtonModule} from "primeng/components/button/button";
 import {CheckboxModule} from "primeng/components/checkbox/checkbox";
 import {FormsModule} from "@angular/forms";
 import {RegistrationService} from "./registration/registration.service";
+import {LoginService} from "./login/login.service";
+import {AuthenticationService} from "./authentication.service";
 
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import {RegistrationService} from "./registration/registration.service";
     AuthenticationComponent
   ],
   providers: [
-    RegistrationService
+    RegistrationService,
+    LoginService,
+    AuthenticationService
   ]
 })
 export class AuthenticationModule { }
