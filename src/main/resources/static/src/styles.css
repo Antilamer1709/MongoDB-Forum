@@ -49,6 +49,8 @@ body {
   margin: auto;
   background-color: #F7F7F9;
   border-radius: 5%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  padding: 10px;
 }
 
 .registrationHeader {
