@@ -101,11 +101,22 @@ label.ui-chkbox-label {
 }
 
 .editPostContainer {
-  padding: 50px 150px;
+  padding: 35px 150px 50px 150px;
 }
 
 .postHeader {
   background-color: #F7F7F9;
-  padding: 20px 100px;
+  padding: 15px 100px;
   text-align: center;
+  margin-bottom: 35px;
+}
+
+.postBody {
+  background-color: #F7F7F9;
+  padding: 50px 100px;
+}
+
+.postSave {
+  text-align: center;
+  margin-top: 25px;
 }

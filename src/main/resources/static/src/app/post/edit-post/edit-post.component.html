@@ -7,4 +7,49 @@
     <h1>Edit post</h1>
   </div>
 
+  <div class="postBody">
+
+    <form novalidate #form="ngForm" (ngSubmit)="submit(form)">
+
+      <div class="row">
+        <div class="form-group">
+          <label>Header:</label>
+          <input [(ngModel)]="postModel.header" name="header" class="form-control"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label>Content:</label>
+          <textarea [(ngModel)]="postModel.content" class="form-control" style="min-height: 100px" name="content"></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label>Post image (optional):</label>
+          <p-fileUpload chooseLabel="Choose file" uploadLabel="Upload" cancelLabel="Cancel"
+            [invalidFileSizeMessageDetail]="invalidFileSizeMessageDetail"
+            [invalidFileSizeMessageSummary]=invalidFileSizeMessageSummary
+            [invalidFileTypeMessageSummary]="invalidFileTypeMessageSummary"
+            [invalidFileTypeMessageDetail]="invalidFileTypeMessageDetail"
+            name="postImage" [url]="url" (onError)="onError($event)" (onUpload)="onUpload($event)"
+            [multiple]="false" [maxFileSize]="maxFileSize" accept="image/*">
+            <ng-template pTemplate="content">
+              dfs
+            </ng-template>
+          </p-fileUpload>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group postSave">
+          <button pButton label="Save" icon="fa-paper-plane" type="submit"></button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
 </div>

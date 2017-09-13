@@ -4,11 +4,15 @@ import {EditPostComponent} from './edit-post/edit-post.component';
 import {OpenPostComponent} from './open-post/open-post.component';
 import {PostComponent} from './post.component';
 import {RouterModule} from "@angular/router";
+import {FileUploadModule} from "primeng/primeng";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FileUploadModule,
+    FormsModule
   ],
   declarations: [
     EditPostComponent,
