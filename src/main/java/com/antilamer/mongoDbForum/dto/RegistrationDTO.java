@@ -60,7 +60,7 @@ public class RegistrationDTO implements Serializable {
     }
 
     public boolean hasEmptyFields() {
-        return username.equals("") || fullName.equals("") || email.equals("") || password.equals("")
-                || confirmPassword.equals("");
+        return username.isEmpty() || fullName.isEmpty() || email.isEmpty() || password.isEmpty()
+                || confirmPassword.isEmpty();
     }
 }
