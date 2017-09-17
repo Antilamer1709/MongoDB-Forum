@@ -15,7 +15,6 @@ export class EditPostService extends CommonService{
 
   savePost(postModel: PostModel): Observable<any> {
     return this.http.post(environment.baseUrl + '/post/save', postModel, {headers: this.getHeaders()})
-      .map(this.extractData)
       .catch((err) => this.handleError(err));
   }
 

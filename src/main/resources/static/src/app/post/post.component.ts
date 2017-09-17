@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CommonComponent} from "../common/common-component";
+import {MessageService} from "primeng/components/common/messageservice";
 
 @Component({
   selector: 'app-post',
@@ -8,8 +9,8 @@ import {CommonComponent} from "../common/common-component";
 })
 export class PostComponent extends CommonComponent implements OnInit {
 
-  constructor() {
-    super();
+  constructor(messageService: MessageService) {
+    super(messageService);
   }
 
   ngOnInit() {

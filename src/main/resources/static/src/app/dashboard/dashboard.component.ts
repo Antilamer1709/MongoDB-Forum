@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DashboardService} from "./dashboard.service";
 import {CommonComponent} from "../common/common-component";
+import {MessageService} from "primeng/components/common/messageservice";
 
 @Component({
   selector: 'app-dashboard',
@@ -11,8 +12,9 @@ export class DashboardComponent extends CommonComponent implements OnInit {
 
   public hello: string;
 
-  constructor(private dashboardService: DashboardService) {
-    super();
+  constructor(private dashboardService: DashboardService,
+              messageService: MessageService) {
+    super(messageService);
   }
 
   ngOnInit() {

@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonComponent} from "../../common/common-component";
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {environment} from "../../../environments/environment";
 import {PostModel} from "../post-model";
 import {Constants} from "../../common/constants";
 import {FormGroup} from "@angular/forms";
 import {EditPostService} from "./edit-post.service";
+import {MessageService} from "primeng/components/common/messageservice";
 
 @Component({
   selector: 'app-edit-post',
@@ -26,8 +27,10 @@ export class EditPostComponent extends CommonComponent implements OnInit {
   public imageUrl: string;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private service: EditPostService) {
-    super();
+              private service: EditPostService,
+              messageService: MessageService,
+              private router: Router) {
+    super(messageService);
   }
 
   ngOnInit() {
@@ -59,7 +62,8 @@ export class EditPostComponent extends CommonComponent implements OnInit {
     if (form.valid) {
       this.service.savePost(this.postModel).subscribe(
         () => {
-          console.log("succes!");
+          this.messageService.add({severity:'info', summary:'Post', detail:'Post was saved!'});
+          this.router.navigate(['/dashboard']);
         },
         error => {
           this.handleException(error);

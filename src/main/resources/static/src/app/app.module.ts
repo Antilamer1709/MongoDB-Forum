@@ -5,10 +5,11 @@ import { AppComponent } from './app.component';
 import {HttpModule} from "@angular/http";
 import {routes} from "./app.routes";
 import {RouterModule} from "@angular/router";
-import {ButtonModule, MenubarModule} from "primeng/primeng";
+import {ButtonModule, GrowlModule, MenubarModule} from "primeng/primeng";
 import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
 import {DashboardModule} from "./dashboard/dashboard.module";
 import {AuthenticationModule} from "./authentication/authentication.module";
+import {MessageService} from "primeng/components/common/messageservice";
 
 @NgModule({
   imports: [
@@ -19,12 +20,15 @@ import {AuthenticationModule} from "./authentication/authentication.module";
     AngularFontAwesomeModule,
     DashboardModule,
     AuthenticationModule,
-    ButtonModule
+    ButtonModule,
+    GrowlModule
   ],
   declarations: [
     AppComponent
   ],
-  providers: [],
+  providers: [
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

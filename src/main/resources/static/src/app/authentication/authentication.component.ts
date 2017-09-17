@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CommonComponent} from "../common/common-component";
+import {MessageService} from "primeng/components/common/messageservice";
 
 @Component({
   selector: 'app-authentication',
@@ -8,8 +9,8 @@ import {CommonComponent} from "../common/common-component";
 })
 export class AuthenticationComponent extends CommonComponent implements OnInit {
 
-  constructor() {
-    super();
+  constructor(messageService: MessageService) {
+    super(messageService);
   }
 
   ngOnInit() {

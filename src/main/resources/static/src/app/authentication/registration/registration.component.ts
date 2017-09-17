@@ -4,6 +4,7 @@ import {RegistrationService} from "./registration.service";
 import {CommonComponent} from "../../common/common-component";
 import {FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
+import {MessageService} from "primeng/components/common/messageservice";
 
 @Component({
   selector: 'app-registration',
@@ -15,8 +16,9 @@ export class RegistrationComponent extends CommonComponent implements OnInit {
   public registration: RegistrationModel;
 
   constructor(private service: RegistrationService,
-              private router: Router) {
-    super();
+              private router: Router,
+              messageService: MessageService) {
+    super(messageService);
   }
 
   ngOnInit() {
@@ -26,9 +28,9 @@ export class RegistrationComponent extends CommonComponent implements OnInit {
   public register(form: FormGroup): void {
     if (form.valid && this.registration.password === this.registration.confirmPassword) {
       this.service.register(this.registration).subscribe(
-        data => {
-          console.log("succes!");
-          console.log(data);
+        () => {
+          this.messageService.add({severity:'info', summary:'Registration', detail:'You can log in now!'});
+          this.router.navigate(['/authentication/login']);
         },
         error => {
           this.handleException(error);

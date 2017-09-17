@@ -21,9 +21,8 @@ export class CommonService {
         console.error('ERROR: ' + error + ' json error:' + e);
       }
       if (status === 401) {
-        this.router.navigate(['/login']);
-        // localStorage.setItem( 'error', 'Please, log in!' );
-        //Observable.throw( errMsg );
+        this.router.navigate(['/authentication/login']);
+        Observable.throw( errMsg );
         return null;
       } else if (status === 404) {
         errMsg = '404';
