@@ -16,7 +16,7 @@ public class AuthenticationController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
-    public void updateComment(@RequestBody RegistrationDTO registrationDTO) {
+    public void registration(@RequestBody RegistrationDTO registrationDTO) {
         authenticationBO.registerUser(registrationDTO);
     }
 
