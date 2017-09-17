@@ -3,6 +3,7 @@ import {CommonComponent} from "../../common/common-component";
 import {ActivatedRoute, Params} from "@angular/router";
 import {environment} from "../../../environments/environment";
 import {PostModel} from "../post-model";
+import {Constants} from "../../common/constants";
 
 @Component({
   selector: 'app-edit-post',
@@ -20,6 +21,7 @@ export class EditPostComponent extends CommonComponent implements OnInit {
   public maxFileSize: number = 4000000; //4mb
   public url: string = environment.baseUrl + '/file/uploadPostImage';
   public postModel: PostModel;
+  public imageUrl: string;
 
   constructor(private activatedRoute: ActivatedRoute) {
     super();
@@ -42,7 +44,12 @@ export class EditPostComponent extends CommonComponent implements OnInit {
   }
 
   public onUpload($event): void {
-    this.postModel.imageName = $event.xhr.response;
+    this.postModel.imageId = $event.xhr.response;
+    this.getPostImage(this.postModel.imageId);
+  }
+
+  private getPostImage(imageId:string): void {
+    this.imageUrl = environment.baseUrl + Constants.IMAGE_DOWNLOAD_URL + imageId;
   }
 
   public submit(): void {

@@ -120,3 +120,7 @@ label.ui-chkbox-label {
   text-align: center;
   margin-top: 25px;
 }
+
+.uploadedImage {
+  width: 100%;
+}

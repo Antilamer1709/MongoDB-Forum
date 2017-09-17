@@ -36,7 +36,7 @@
             name="postImage" [url]="url" (onError)="onError($event)" (onUpload)="onUpload($event)"
             [multiple]="false" [maxFileSize]="maxFileSize" accept="image/*">
             <ng-template pTemplate="content">
-              dfs
+              <img *ngIf="imageUrl" src="{{imageUrl}}" class="uploadedImage">
             </ng-template>
           </p-fileUpload>
         </div>
