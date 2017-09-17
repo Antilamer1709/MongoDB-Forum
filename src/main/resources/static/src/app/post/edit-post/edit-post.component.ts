@@ -4,6 +4,8 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {environment} from "../../../environments/environment";
 import {PostModel} from "../post-model";
 import {Constants} from "../../common/constants";
+import {FormGroup} from "@angular/forms";
+import {EditPostService} from "./edit-post.service";
 
 @Component({
   selector: 'app-edit-post',
@@ -23,7 +25,8 @@ export class EditPostComponent extends CommonComponent implements OnInit {
   public postModel: PostModel;
   public imageUrl: string;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private service: EditPostService) {
     super();
   }
 
@@ -52,8 +55,19 @@ export class EditPostComponent extends CommonComponent implements OnInit {
     this.imageUrl = environment.baseUrl + Constants.IMAGE_DOWNLOAD_URL + imageId;
   }
 
-  public submit(): void {
-
+  public submit(form: FormGroup): void {
+    if (form.valid) {
+      this.service.savePost(this.postModel).subscribe(
+        () => {
+          console.log("succes!");
+        },
+        error => {
+          this.handleException(error);
+        }
+      );
+    } else {
+      this.handleFormErrors(form);
+    }
   }
 
 }

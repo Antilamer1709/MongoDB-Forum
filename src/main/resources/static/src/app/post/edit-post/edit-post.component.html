@@ -14,14 +14,15 @@
       <div class="row">
         <div class="form-group">
           <label>Header:</label>
-          <input [(ngModel)]="postModel.header" name="header" class="form-control"/>
+          <input [(ngModel)]="postModel.header" name="header" class="form-control" required="true"/>
         </div>
       </div>
 
       <div class="row">
         <div class="form-group">
           <label>Content:</label>
-          <textarea [(ngModel)]="postModel.content" class="form-control" style="min-height: 100px" name="content"></textarea>
+          <textarea [(ngModel)]="postModel.content" class="form-control" style="min-height: 100px" name="content" required="true">
+          </textarea>
         </div>
       </div>
 

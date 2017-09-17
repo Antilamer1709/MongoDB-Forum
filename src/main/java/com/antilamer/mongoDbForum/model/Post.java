@@ -18,10 +18,14 @@ public class Post implements Serializable {
 
     private String content;
 
+    private String imageId;
+
     private Date createdDate;
 
+    private Date modifiedDate;
+
     @DBRef
-    private User user;
+    private User creator;
 
     @DBRef
     private List<Comment> comments;
@@ -51,6 +55,14 @@ public class Post implements Serializable {
         this.content = content;
     }
 
+    public String getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
+    }
+
     public Date getCreatedDate() {
         return createdDate;
     }
@@ -59,12 +71,20 @@ public class Post implements Serializable {
         this.createdDate = createdDate;
     }
 
-    public User getUser() {
-        return user;
+    public Date getModifiedDate() {
+        return modifiedDate;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
     }
 
     public List<Comment> getComments() {

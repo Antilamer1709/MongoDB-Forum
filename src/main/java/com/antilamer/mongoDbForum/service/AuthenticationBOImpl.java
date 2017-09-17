@@ -5,6 +5,8 @@ import com.antilamer.mongoDbForum.exeption.ValidationExeption;
 import com.antilamer.mongoDbForum.model.User;
 import com.antilamer.mongoDbForum.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +17,10 @@ public class AuthenticationBOImpl implements AuthenticationBO {
 
     @Autowired
     private UserRepo userRepo;
+
+
+    @Autowired
+    UserDetailsService userDetailsService;
 
     @Override
     @Transactional
@@ -37,5 +43,10 @@ public class AuthenticationBOImpl implements AuthenticationBO {
         user.setEmail(registrationDTO.getEmail());
         user.setPassword(registrationDTO.getPassword()); //TODO implement encoding!
         user.setRegistrationDate(new Date());
+    }
+
+    @Override
+    public User getLoggedUser() {
+        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 }
