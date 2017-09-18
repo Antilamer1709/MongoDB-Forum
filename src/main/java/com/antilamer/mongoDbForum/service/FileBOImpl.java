@@ -3,7 +3,6 @@ package com.antilamer.mongoDbForum.service;
 import com.mongodb.gridfs.GridFSDBFile;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.gridfs.GridFsOperations;
@@ -17,9 +16,6 @@ import java.io.*;
 
 @Service
 public class FileBOImpl implements FileBO {
-
-    @Value("${post.images.directory}")
-    private String imagesDirectory;
 
     @Autowired
     GridFsOperations gridFsOperations;
