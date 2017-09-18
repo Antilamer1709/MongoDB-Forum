@@ -35,6 +35,10 @@ public class AuthenticationBOImpl implements AuthenticationBO {
         if (registrationDTO.hasNullFields() || registrationDTO.hasEmptyFields()) {
             throw new ValidationExeption("Registration object is not valid!");
         }
+        User user = userRepo.findByUsernameIgnoreCase(registrationDTO.getUsername());
+        if (user != null) {
+            throw new ValidationExeption("User with the same username is already registered!");
+        }
     }
 
     private void initUser(User user, RegistrationDTO registrationDTO) {

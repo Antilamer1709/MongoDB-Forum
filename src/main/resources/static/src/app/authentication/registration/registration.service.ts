@@ -15,7 +15,6 @@ export class RegistrationService extends CommonService {
 
   register(registration: RegistrationModel): Observable<any> {
     return this.http.post(environment.baseUrl + '/authentication/registration', registration, {headers: this.getHeaders()})
-      .map(this.extractData)
       .catch((err) => this.handleError(err));
   }
 

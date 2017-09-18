@@ -1,6 +1,6 @@
 import {Response, Headers} from "@angular/http";
 import {Router} from "@angular/router/router";
-import {Observable} from "rxjs/Observable";
+import { Observable } from "rxjs";
 
 
 export class CommonService {

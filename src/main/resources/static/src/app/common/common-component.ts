@@ -5,8 +5,8 @@ export class CommonComponent {
 
   constructor(protected messageService: MessageService) {}
 
-  public handleException(exception) {
-    this.messageService.add({severity:'error', summary:'Error', detail: exception.message});
+  public handleException(message) {
+    this.messageService.add({severity:'error', summary:'Error', detail: message});
   }
 
   public handleFormErrors(form: FormGroup) {
