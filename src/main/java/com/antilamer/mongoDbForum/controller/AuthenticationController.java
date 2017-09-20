@@ -1,6 +1,7 @@
 package com.antilamer.mongoDbForum.controller;
 
 import com.antilamer.mongoDbForum.dto.RegistrationDTO;
+import com.antilamer.mongoDbForum.dto.UserDTO;
 import com.antilamer.mongoDbForum.service.AuthenticationBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,11 @@ public class AuthenticationController {
     @ResponseStatus(value = HttpStatus.OK)
     public void registration(@RequestBody RegistrationDTO registrationDTO) {
         authenticationBO.registerUser(registrationDTO);
+    }
+
+    @RequestMapping(value = "/loggedUser", method = RequestMethod.POST)
+    public UserDTO loggedUser() throws Exception {
+        return authenticationBO.getLoggedUserDTO();
     }
 
 }

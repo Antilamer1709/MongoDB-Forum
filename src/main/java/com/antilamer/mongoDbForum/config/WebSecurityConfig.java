@@ -52,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         web.ignoring().antMatchers( "/", "/resources/**", "/index.*", "/login.html","/favicon.ico",
                 "/template/**", "/assets", "/assets/**", "/node_modules", "/node_modules/**", "/dist", "/dist/**",
-                "/*.ttf", "/*.woff2", "/dashboard", "/dashboard/**", "/authentication/**", "/authentication/login",
+                "/*.ttf", "/*.woff2", "/dashboard", "/dashboard/**", "/authentication/login",
                 "/authentication/registration");
     }
 

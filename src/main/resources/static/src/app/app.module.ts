@@ -10,6 +10,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awes
 import {DashboardModule} from "./dashboard/dashboard.module";
 import {AuthenticationModule} from "./authentication/authentication.module";
 import {MessageService} from "primeng/components/common/messageservice";
+import {GuardService} from "./common/guard-service";
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import {MessageService} from "primeng/components/common/messageservice";
     AppComponent
   ],
   providers: [
-    MessageService
+    MessageService,
+    GuardService
   ],
   bootstrap: [AppComponent]
 })

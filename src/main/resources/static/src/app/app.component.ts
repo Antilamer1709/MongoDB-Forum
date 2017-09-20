@@ -19,9 +19,8 @@ export class AppComponent extends CommonComponent implements OnInit  {
   }
 
   ngOnInit() {
-    this.messageService.messageObserver.subscribe(message => {
-      this.msgs.push(message);
-    });
+    this.initLoggedUser();
+    this.initMessageObserver();
   }
 
   public logout(): void {
@@ -34,6 +33,24 @@ export class AppComponent extends CommonComponent implements OnInit  {
         this.handleException(error);
       }
     );
+  }
+
+  private initLoggedUser(): void {
+    this.authenticationService.getLoggedUser().subscribe(
+      res => {
+        console.log("loggedUser: ");
+        console.log(res);
+      },
+      error => {
+        this.handleException(error);
+      }
+    );
+  }
+
+  private initMessageObserver(): void {
+    this.messageService.messageObserver.subscribe(message => {
+      this.msgs.push(message);
+    });
   }
 
 }

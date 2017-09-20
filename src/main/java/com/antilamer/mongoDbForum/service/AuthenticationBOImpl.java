@@ -1,12 +1,14 @@
 package com.antilamer.mongoDbForum.service;
 
 import com.antilamer.mongoDbForum.dto.RegistrationDTO;
+import com.antilamer.mongoDbForum.dto.UserDTO;
 import com.antilamer.mongoDbForum.exeption.ValidationExeption;
 import com.antilamer.mongoDbForum.model.User;
 import com.antilamer.mongoDbForum.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,10 +19,6 @@ public class AuthenticationBOImpl implements AuthenticationBO {
 
     @Autowired
     private UserRepo userRepo;
-
-
-    @Autowired
-    UserDetailsService userDetailsService;
 
     @Override
     @Transactional
@@ -51,6 +49,30 @@ public class AuthenticationBOImpl implements AuthenticationBO {
 
     @Override
     public User getLoggedUser() {
-        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        for (GrantedAuthority authority : authentication.getAuthorities()) {
+            if (authority.getAuthority().equals("ROLE_ANONYMOUS")) {
+                return null;
+            }
+        }
+        return (User) authentication.getPrincipal();
+    }
+
+    @Override
+    public UserDTO getLoggedUserDTO() {
+        User user = getLoggedUser();
+        UserDTO userDTO = new UserDTO();
+        if (user != null) {
+            initUserDTO(userDTO, user);
+        }
+        return userDTO;
+    }
+
+    private void initUserDTO(UserDTO userDTO, User user) {
+        userDTO.setId(user.getId());
+        userDTO.setUsername(user.getUsername());
+        userDTO.setFullName(user.getFullName());
+        userDTO.setEmail(user.getEmail());
+        userDTO.setRegistrationDate(user.getRegistrationDate());
     }
 }

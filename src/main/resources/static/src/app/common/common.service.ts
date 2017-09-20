@@ -1,6 +1,7 @@
 import {Response, Headers} from "@angular/http";
 import {Router} from "@angular/router/router";
 import { Observable } from "rxjs";
+import {UserModel} from "../app-model";
 
 
 export class CommonService {
@@ -70,6 +71,14 @@ export class CommonService {
       return value;
     });
     return body || {};
+  }
+
+  protected extractLoggedUser(res: Response) {
+    let user: UserModel = this.extractData(res);
+    if (!user.id) {
+      user = null;
+    }
+    return user;
   }
 
 }
