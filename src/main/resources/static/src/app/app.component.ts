@@ -3,6 +3,7 @@ import {CommonComponent} from "./common/common-component";
 import {MessageService} from "primeng/components/common/messageservice";
 import {Message} from "primeng/primeng";
 import {AuthenticationService} from "./authentication/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent extends CommonComponent implements OnInit  {
   public msgs: Message[] = [];
 
   constructor(messageService: MessageService,
-              public authenticationService: AuthenticationService) {
+              public authenticationService: AuthenticationService,
+              private router: Router) {
     super(messageService);
   }
 
@@ -28,6 +30,7 @@ export class AppComponent extends CommonComponent implements OnInit  {
       () => {
         this.authenticationService.loggedUser = null;
         this.messageService.add({severity:'info', summary:'Hello', detail:'You are logged out!'});
+        this.router.navigate(['/dashboard']);
       },
       error => {
         this.handleException(error);
