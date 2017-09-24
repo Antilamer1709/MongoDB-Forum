@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {CommonService} from "../common/common.service";
-import {Http} from "@angular/http";
+import {Http, URLSearchParams} from "@angular/http";
 import {Router} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {environment} from "../../environments/environment";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {Hello} from "./dashboard-model";
+import {PostModel} from "../post/post-model";
 
 @Injectable()
 export class DashboardService extends CommonService {
@@ -15,10 +15,18 @@ export class DashboardService extends CommonService {
     super(router)
   }
 
-  getHello(): Observable<Hello> {
-    return this.http.get(environment.baseUrl + '/hello', { headers: this.getHeaders() } )
-      .map( this.extractData )
-      .catch(( err ) => this.handleError( err ) );
+  getPosts(limit: string, offset: string): Observable<PostModel[]> {
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('limit', limit);
+    params.set('offset', offset);
+
+    return this.http.get(environment.baseUrl + '/dashboard/getPosts',
+      {
+        headers: this.getHeaders(),
+        search: params
+      })
+      .map(this.extractData)
+      .catch((err) => this.handleError(err));
   }
 
 }

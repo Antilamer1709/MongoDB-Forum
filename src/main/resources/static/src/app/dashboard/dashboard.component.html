@@ -1,2 +1,7 @@
-<router-outlet></router-outlet>
-dashboard
+<div class="container">
+  <p-dataScroller [value]="posts" [rows]="20" [lazy]="true" (onLazyLoad)="loadData($event)">
+    <ng-template let-post pTemplate="item">
+     {{post.id}}
+    </ng-template>
+  </p-dataScroller>
+</div>

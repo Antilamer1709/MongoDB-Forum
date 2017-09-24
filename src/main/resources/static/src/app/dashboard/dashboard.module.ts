@@ -4,12 +4,14 @@ import {DashboardComponent} from "./dashboard.component";
 import {DashboardService} from "./dashboard.service";
 import {PostModule} from "../post/post.module";
 import {RouterModule} from "@angular/router";
+import {DataScrollerModule} from "primeng/primeng";
 
 @NgModule({
   imports: [
     CommonModule,
     PostModule,
-    RouterModule
+    RouterModule,
+    DataScrollerModule
   ],
   declarations: [
     DashboardComponent

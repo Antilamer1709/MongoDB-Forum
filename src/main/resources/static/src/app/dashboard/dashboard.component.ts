@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DashboardService} from "./dashboard.service";
 import {CommonComponent} from "../common/common-component";
 import {MessageService} from "primeng/components/common/messageservice";
+import {PostModel} from "../post/post-model";
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ import {MessageService} from "primeng/components/common/messageservice";
 })
 export class DashboardComponent extends CommonComponent implements OnInit {
 
-  public hello: string;
+  public posts: PostModel[];
 
   constructor(private dashboardService: DashboardService,
               messageService: MessageService) {
@@ -18,16 +19,20 @@ export class DashboardComponent extends CommonComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.posts = [];
+  }
 
+  public loadData($event): void {
+    console.log($event);
 
-    // this.dashboardService.getHello().subscribe(
-    //   data => {
-    //     this.hello = data.hello;
-    //   },
-    //   error => {
-    //     this.handleException(error);
-    //   }
-    // );
+    this.dashboardService.getPosts($event.rows, $event.first).subscribe(
+      data => {
+        this.posts = this.posts.concat(data);
+      },
+      error => {
+        this.handleException(error);
+      }
+    );
   }
 
 }
