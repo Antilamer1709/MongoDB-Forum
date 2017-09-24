@@ -4,7 +4,7 @@ import {LoginModel} from "../authentication-model";
 import {FormGroup} from "@angular/forms";
 import {LoginService} from "./login.service";
 import {MessageService} from "primeng/components/common/messageservice";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -14,15 +14,18 @@ import {Router} from "@angular/router";
 export class LoginComponent extends CommonComponent implements OnInit {
 
   public loginModel: LoginModel;
+  private returnUrl: string;
 
   constructor(private service: LoginService,
               messageService: MessageService,
-              private router: Router) {
+              private router: Router,
+              private route: ActivatedRoute) {
     super(messageService);
   }
 
   ngOnInit() {
     this.loginModel = new LoginModel();
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
   }
 
   public login(form: FormGroup): void {
@@ -30,7 +33,7 @@ export class LoginComponent extends CommonComponent implements OnInit {
       this.service.authenticate(this.loginModel).subscribe(
         () => {
           this.messageService.add({severity:'info', summary:'Hello', detail:'You are logged in!'});
-          this.router.navigate(['/dashboard']);
+          this.router.navigate([this.returnUrl]);
         },
         error => {
           this.handleException(error);
