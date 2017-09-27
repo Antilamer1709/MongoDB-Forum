@@ -12,7 +12,7 @@ export const PostRoutes: Route[] = [
     children: [
       { path: 'new', component: EditPostComponent },
       { path: 'edit/:id', component: EditPostComponent },
-      { path: ':id', component: OpenPostComponent }
+      { path: 'open/:id', component: OpenPostComponent }
     ]
   }
 ];

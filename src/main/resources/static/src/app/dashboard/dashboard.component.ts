@@ -5,6 +5,7 @@ import {MessageService} from "primeng/components/common/messageservice";
 import {PostModel} from "../post/post-model";
 import {environment} from "../../environments/environment";
 import {Constants} from "../common/constants";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +18,7 @@ export class DashboardComponent extends CommonComponent implements OnInit {
   public imageUrl: string = environment.baseUrl + Constants.IMAGE_DOWNLOAD_URL;
 
   constructor(private dashboardService: DashboardService,
+              private router: Router,
               messageService: MessageService) {
     super(messageService);
   }
@@ -36,6 +38,10 @@ export class DashboardComponent extends CommonComponent implements OnInit {
         this.handleException(error);
       }
     );
+  }
+
+  public openPost(id: string): void {
+    this.router.navigate(['/post/open/' + id]);
   }
 
 }

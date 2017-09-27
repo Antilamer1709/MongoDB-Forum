@@ -1,3 +1,19 @@
-<p>
-  open-post works!
-</p>
+<div class="container">
+  <div class="post" *ngIf="post">
+
+    <div class="postHeader">
+      <h2>{{post.header}}</h2>
+    </div>
+
+    <div *ngIf="post.imageId" class="postImageDiv">
+      <a routerLink="/post/open/{{post.id}}">
+        <img src="{{imageUrl + post.imageId}}" class="postImage">
+      </a>
+    </div>
+
+    <div class="postContent">
+      {{post.content}}
+    </div>
+
+  </div>
+</div>

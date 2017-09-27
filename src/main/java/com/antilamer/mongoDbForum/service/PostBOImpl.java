@@ -4,6 +4,7 @@ import com.antilamer.mongoDbForum.dto.PostDTO;
 import com.antilamer.mongoDbForum.exeption.ValidationExeption;
 import com.antilamer.mongoDbForum.model.Post;
 import com.antilamer.mongoDbForum.repository.PostRepo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,5 +44,16 @@ public class PostBOImpl implements PostBO {
         }
         post.setCreatedDate(new Date());
         post.setCreator(authenticationBO.getLoggedUser());
+    }
+
+    @Override
+    public PostDTO getPost(String id) {
+        Post post = postRepo.findOne(id);
+        if (post == null) {
+            throw new RuntimeException("Post with id " + id + " does not exist!");
+        }
+        PostDTO postDTO = new PostDTO();
+        BeanUtils.copyProperties(post, postDTO);
+        return postDTO;
     }
 }

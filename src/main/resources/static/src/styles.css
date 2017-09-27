@@ -129,7 +129,7 @@ label.ui-chkbox-label {
   border: none !important;
 }
 
-.dashboardPost {
+.post {
   margin-top: 50px;
 }
 
@@ -139,14 +139,23 @@ label.ui-chkbox-label {
   text-align: center;
   margin-bottom: 35px;
   font-size: 22px;
+  cursor: pointer;
+}
+.dashboardPostHeader:hover {
+  color: #014c8c !important;
+  background-color: #F0F2F4;
 }
 
-.dashboardPostImage {
+.postImageDiv {
   margin-bottom: 25px;
   text-align: center;
   max-height: 600px;
 }
 
-.dashboardPostContent {
+.postImage {
+  max-width: 1000px;
+}
+
+.postContent {
   margin-bottom: 50px;
 }

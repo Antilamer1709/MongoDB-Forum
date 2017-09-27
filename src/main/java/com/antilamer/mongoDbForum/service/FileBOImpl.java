@@ -28,6 +28,9 @@ public class FileBOImpl implements FileBO {
     @Override
     public ResponseEntity<byte[]> getPostImage(String imageId) throws IOException {
         GridFSDBFile file = this.gridFsOperations.findOne(new Query(Criteria.where("_id").is(imageId)));
+        if (file == null) {
+            throw new RuntimeException("Image with id " + imageId + " does not exist!");
+        }
 
         final HttpHeaders headers = new HttpHeaders();
         Long fileLength = file.getLength();

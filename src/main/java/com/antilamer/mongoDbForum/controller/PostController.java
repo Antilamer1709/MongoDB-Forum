@@ -19,4 +19,9 @@ public class PostController {
         postBO.savePost(postDTO);
     }
 
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    public PostDTO getPosts(@PathVariable String id){
+        return postBO.getPost(id);
+    }
+
 }

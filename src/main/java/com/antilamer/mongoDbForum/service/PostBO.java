@@ -6,4 +6,6 @@ public interface PostBO {
 
     void savePost(PostDTO postDTO);
 
+    PostDTO getPost(String id);
+
 }

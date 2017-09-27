@@ -2,16 +2,22 @@
   <p-dataScroller [value]="posts" [rows]="20" [lazy]="true" (onLazyLoad)="loadData($event)">
     <ng-template let-post pTemplate="item">
 
-      <div class="dashboardPost">
-        <div class="dashboardPostHeader">
+      <div class="post">
+
+        <div class="dashboardPostHeader" (click)="openPost(post.id)">
           {{post.header}}
         </div>
-        <div *ngIf="post.imageId" class="dashboardPostImage">
-          <img src="{{imageUrl + post.imageId}}" style="max-width: 1000px">
+
+        <div *ngIf="post.imageId" class="postImageDiv">
+          <a routerLink="/post/open/{{post.id}}">
+            <img src="{{imageUrl + post.imageId}}" class="postImage">
+          </a>
         </div>
-        <div class="dashboardPostContent">
+
+        <div class="postContent">
           {{post.content}}
         </div>
+
       </div>
 
     </ng-template>

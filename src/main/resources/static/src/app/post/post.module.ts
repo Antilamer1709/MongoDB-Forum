@@ -7,6 +7,7 @@ import {RouterModule} from "@angular/router";
 import {FileUploadModule} from "primeng/primeng";
 import {FormsModule} from "@angular/forms";
 import {EditPostService} from "./edit-post/edit-post.service";
+import {OpenPostService} from "./open-post/open-post.service";
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import {EditPostService} from "./edit-post/edit-post.service";
     PostComponent
   ],
   providers: [
-    EditPostService
+    EditPostService,
+    OpenPostService
   ]
 })
 export class PostModule {
