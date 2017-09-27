@@ -1,7 +1,19 @@
 <div class="container">
   <p-dataScroller [value]="posts" [rows]="20" [lazy]="true" (onLazyLoad)="loadData($event)">
     <ng-template let-post pTemplate="item">
-     {{post.id}}
+
+      <div class="dashboardPost">
+        <div class="dashboardPostHeader">
+          {{post.header}}
+        </div>
+        <div *ngIf="post.imageId" class="dashboardPostImage">
+          <img src="{{imageUrl + post.imageId}}" style="max-width: 1000px">
+        </div>
+        <div class="dashboardPostContent">
+          {{post.content}}
+        </div>
+      </div>
+
     </ng-template>
   </p-dataScroller>
 </div>

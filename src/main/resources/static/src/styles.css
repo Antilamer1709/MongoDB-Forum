@@ -124,3 +124,29 @@ label.ui-chkbox-label {
 .uploadedImage {
   width: 100%;
 }
+
+.ui-datascroller-content {
+  border: none !important;
+}
+
+.dashboardPost {
+  margin-top: 50px;
+}
+
+.dashboardPostHeader {
+  background-color: #F7F7F9;
+  padding: 15px 100px;
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 22px;
+}
+
+.dashboardPostImage {
+  margin-bottom: 25px;
+  text-align: center;
+  max-height: 600px;
+}
+
+.dashboardPostContent {
+  margin-bottom: 50px;
+}

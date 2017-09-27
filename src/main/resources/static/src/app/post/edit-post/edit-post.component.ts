@@ -50,6 +50,7 @@ export class EditPostComponent extends CommonComponent implements OnInit {
   }
 
   public onUpload($event): void {
+    console.log($event);
     this.postModel.imageId = $event.xhr.response;
     this.getPostImage(this.postModel.imageId);
   }
