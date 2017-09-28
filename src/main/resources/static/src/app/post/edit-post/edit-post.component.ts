@@ -7,6 +7,7 @@ import {Constants} from "../../common/constants";
 import {FormGroup} from "@angular/forms";
 import {EditPostService} from "./edit-post.service";
 import {MessageService} from "primeng/components/common/messageservice";
+import {ConfirmationService} from "primeng/primeng";
 
 @Component({
   selector: 'app-edit-post',
@@ -29,7 +30,8 @@ export class EditPostComponent extends CommonComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
               private service: EditPostService,
               messageService: MessageService,
-              private router: Router) {
+              private router: Router,
+              private confirmationService: ConfirmationService) {
     super(messageService);
   }
 
@@ -59,7 +61,7 @@ export class EditPostComponent extends CommonComponent implements OnInit {
     this.imageUrl = environment.baseUrl + Constants.IMAGE_DOWNLOAD_URL + imageId;
   }
 
-  public submit(form: FormGroup): void {
+  private submit(form: FormGroup): void {
     if (form.valid) {
       this.service.savePost(this.postModel).subscribe(
         () => {
@@ -72,6 +74,19 @@ export class EditPostComponent extends CommonComponent implements OnInit {
       );
     } else {
       this.handleFormErrors(form);
+    }
+  }
+
+  public confirmAddingPost(form: FormGroup): void {
+    if (this.postModel.imageId) {
+      this.submit(form);
+    } else {
+      this.confirmationService.confirm({
+        message: 'You have added an image but not uploaded it. Do you want to add post without it?',
+        accept: () => {
+          this.submit(form);
+        }
+      });
     }
   }
 
