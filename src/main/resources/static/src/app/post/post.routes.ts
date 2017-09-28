@@ -8,10 +8,9 @@ export const PostRoutes: Route[] = [
   {
     path: 'post',
     component: PostComponent,
-    canActivate: [GuardService],
     children: [
-      { path: 'new', component: EditPostComponent },
-      { path: 'edit/:id', component: EditPostComponent },
+      { path: 'new', component: EditPostComponent, canActivate: [GuardService] },
+      { path: 'edit/:id', component: EditPostComponent, canActivate: [GuardService], },
       { path: 'open/:id', component: OpenPostComponent }
     ]
   }

@@ -53,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers( "/", "/resources/**", "/index.*", "/login.html","/favicon.ico",
                 "/template/**", "/assets", "/assets/**", "/node_modules", "/node_modules/**", "/dist", "/dist/**",
                 "/*.ttf", "/*.woff2", "/dashboard", "/dashboard/**", "/authentication/login",
-                "/authentication/registration");
+                "/authentication/registration", "/post/{id}", "/file/getPostImage");
     }
 
     @Override
@@ -63,6 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/authentication/**").permitAll()
                 .antMatchers("/authenticate").permitAll()
                 .antMatchers("/index").permitAll()
+                .antMatchers("/post/save").authenticated()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling()
