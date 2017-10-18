@@ -1,6 +1,7 @@
 package com.antilamer.mongoDbForum.service;
 
 import com.antilamer.mongoDbForum.dto.PostDTO;
+import com.antilamer.mongoDbForum.dto.UserDTO;
 import com.antilamer.mongoDbForum.exeption.ValidationExeption;
 import com.antilamer.mongoDbForum.model.Comment;
 import com.antilamer.mongoDbForum.model.Post;
@@ -56,7 +57,9 @@ public class PostBOImpl implements PostBO {
             throw new RuntimeException("Post with id " + id + " does not exist!");
         }
         PostDTO postDTO = new PostDTO();
+        postDTO.setCreator(new UserDTO());
         BeanUtils.copyProperties(post, postDTO);
+        BeanUtils.copyProperties(post.getCreator(), postDTO.getCreator());
         return postDTO;
     }
 

@@ -6,16 +6,28 @@
     </div>
 
     <div *ngIf="post.imageId" class="postImageDiv">
-      <a routerLink="/post/open/{{post.id}}">
-        <img src="{{imageUrl + post.imageId}}" class="postImage">
-      </a>
+      <img src="{{imageUrl + post.imageId}}" class="postImage">
     </div>
 
     <div class="postContent">
       {{post.content}}
     </div>
 
-    <form  #form="ngForm" (ngSubmit)="addComment(form)">
+    <div class="row" style="margin-right: 0; margin-bottom: 5px">
+      <div class="postCreatorSignature">
+        {{post.creator.username}} {{post.createdDate | date: 'dd/MM/yyyy'}}
+      </div>
+    </div>
+
+    <div *ngFor="let comment of post.comments" class="commentBody">
+      <div class="commentHeader">
+        <h6>{{comment.user.username}} {{comment.creationDate | date: 'dd/MM/yyyy'}}</h6>
+      </div>
+
+      <div [innerHTML]="comment.text"></div>
+    </div>
+
+    <form *ngIf="authenticationService.loggedUser" #form="ngForm" (ngSubmit)="addComment(form)">
       <div class="addComment">
         <p-editor [(ngModel)]="post.newComment" [style]="{'height':'200px'}" name="addComment"></p-editor>
         <div class="form-group postSave">

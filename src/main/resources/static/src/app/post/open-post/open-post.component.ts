@@ -7,6 +7,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {environment} from "../../../environments/environment";
 import {Constants} from "../../common/constants";
 import {FormGroup} from "@angular/forms";
+import {AuthenticationService} from "../../authentication/authentication.service";
 
 @Component({
   selector: 'app-open-post',
@@ -21,6 +22,7 @@ export class OpenPostComponent extends CommonComponent implements OnInit {
 
   constructor(messageService: MessageService,
               private openPostService: OpenPostService,
+              public authenticationService: AuthenticationService,
               private activatedRoute: ActivatedRoute) {
     super(messageService);
   }
@@ -53,6 +55,7 @@ export class OpenPostComponent extends CommonComponent implements OnInit {
         data => {
           this.messageService.add({severity:'info', summary:'Post', detail:'Comment was added!'});
           this.post.newComment = null;
+          this.initPost();
         },
         error => {
           this.handleException(error);
