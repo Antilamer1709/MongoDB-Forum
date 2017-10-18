@@ -20,6 +20,11 @@ public class Comment implements Serializable {
 
     private Date creationDate;
 
+    public Comment(String text, User user) {
+        this.text = text;
+        this.user = user;
+        this.creationDate = new Date();
+    }
 
     public String getId() {
         return id;

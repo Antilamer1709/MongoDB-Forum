@@ -6,6 +6,7 @@ import {OpenPostService} from "./open-post.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {environment} from "../../../environments/environment";
 import {Constants} from "../../common/constants";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-open-post',
@@ -44,6 +45,20 @@ export class OpenPostComponent extends CommonComponent implements OnInit {
         this.handleException(error);
       }
     );
+  }
+
+  public addComment(form: FormGroup): void {
+    if (form.valid){
+      this.openPostService.addComment(this.post).subscribe(
+        data => {
+          this.messageService.add({severity:'info', summary:'Post', detail:'Comment was added!'});
+          this.post.newComment = null;
+        },
+        error => {
+          this.handleException(error);
+        }
+      );
+    }
   }
 
 }

@@ -15,5 +15,14 @@
       {{post.content}}
     </div>
 
+    <form  #form="ngForm" (ngSubmit)="addComment(form)">
+      <div class="addComment">
+        <p-editor [(ngModel)]="post.newComment" [style]="{'height':'200px'}" name="addComment"></p-editor>
+        <div class="form-group postSave">
+          <button pButton label="Add comment" icon="fa-paper-plane" type="submit"></button>
+        </div>
+      </div>
+    </form>
+
   </div>
 </div>

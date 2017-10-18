@@ -19,4 +19,9 @@ export class OpenPostService extends CommonService {
       .catch((err) => this.handleError(err));
   }
 
+  addComment(postModel: PostModel): Observable<any> {
+    return this.http.post(environment.baseUrl + '/post/addComment', postModel, {headers: this.getHeaders()})
+      .catch((err) => this.handleError(err));
+  }
+
 }

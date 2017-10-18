@@ -4,7 +4,7 @@ import {EditPostComponent} from './edit-post/edit-post.component';
 import {OpenPostComponent} from './open-post/open-post.component';
 import {PostComponent} from './post.component';
 import {RouterModule} from "@angular/router";
-import {ConfirmationService, ConfirmDialogModule, FileUploadModule} from "primeng/primeng";
+import {ConfirmationService, ConfirmDialogModule, EditorModule, FileUploadModule} from "primeng/primeng";
 import {FormsModule} from "@angular/forms";
 import {EditPostService} from "./edit-post/edit-post.service";
 import {OpenPostService} from "./open-post/open-post.service";
@@ -17,7 +17,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     FileUploadModule,
     FormsModule,
     ConfirmDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    EditorModule
   ],
   declarations: [
     EditPostComponent,

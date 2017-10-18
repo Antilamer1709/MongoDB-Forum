@@ -12,6 +12,8 @@ public class PostDTO implements Serializable {
 
     private String imageId;
 
+    private String newComment;
+
 
     public String getId() {
         return id;
@@ -45,7 +47,13 @@ public class PostDTO implements Serializable {
         this.imageId = imageId;
     }
 
+    public String getNewComment() {
+        return newComment;
+    }
 
+    public void setNewComment(String newComment) {
+        this.newComment = newComment;
+    }
 
     public boolean isValid() {
         return header != null && content != null && !header.isEmpty() && !content.isEmpty();

@@ -3,4 +3,5 @@ export class PostModel {
   header: string;
   content: string;
   imageId: string;
+  newComment: string;
 }

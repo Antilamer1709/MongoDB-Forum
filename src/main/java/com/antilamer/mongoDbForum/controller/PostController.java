@@ -20,8 +20,14 @@ public class PostController {
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
-    public PostDTO getPosts(@PathVariable String id){
+    public PostDTO getPost(@PathVariable String id){
         return postBO.getPost(id);
+    }
+
+    @RequestMapping(value = "/addComment", method = RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void addComment(@RequestBody PostDTO postDTO) {
+        postBO.addComment(postDTO);
     }
 
 }

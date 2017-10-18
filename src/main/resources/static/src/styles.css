@@ -159,3 +159,8 @@ label.ui-chkbox-label {
 .postContent {
   margin-bottom: 50px;
 }
+
+.addComment {
+  width: 80%;
+  margin: 0 auto;
+}

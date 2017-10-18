@@ -8,4 +8,6 @@ public interface PostBO {
 
     PostDTO getPost(String id);
 
+    void addComment(PostDTO postDTO);
+
 }

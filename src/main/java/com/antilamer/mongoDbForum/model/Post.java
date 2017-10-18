@@ -1,5 +1,6 @@
 package com.antilamer.mongoDbForum.model;
 
+import com.antilamer.mongoDbForum.annotation.CascadeSave;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -28,6 +29,7 @@ public class Post implements Serializable {
     private User creator;
 
     @DBRef
+    @CascadeSave
     private List<Comment> comments;
 
 
