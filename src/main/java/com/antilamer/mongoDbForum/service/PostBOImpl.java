@@ -18,10 +18,10 @@ import java.util.Date;
 public class PostBOImpl implements PostBO {
 
     @Autowired
-    PostRepo postRepo;
+    private PostRepo postRepo;
 
     @Autowired
-    AuthenticationBO authenticationBO;
+    private AuthenticationBO authenticationBO;
 
     @Override
     public void savePost(PostDTO postDTO) {
