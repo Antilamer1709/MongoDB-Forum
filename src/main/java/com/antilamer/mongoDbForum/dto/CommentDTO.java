@@ -1,5 +1,8 @@
 package com.antilamer.mongoDbForum.dto;
 
+import com.antilamer.mongoDbForum.model.Comment;
+import org.springframework.beans.BeanUtils;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,6 +15,16 @@ public class CommentDTO implements Serializable {
     private UserDTO user;
 
     private Date creationDate;
+
+
+    public static CommentDTO convertToDTO(final Comment comment) {
+        CommentDTO commentDTO = new CommentDTO();
+        commentDTO.setUser(new UserDTO());
+        BeanUtils.copyProperties(comment, commentDTO);
+        BeanUtils.copyProperties(comment.getUser(), commentDTO.getUser());
+        return commentDTO;
+    }
+
 
     public String getId() {
         return id;

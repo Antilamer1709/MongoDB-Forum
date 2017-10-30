@@ -1,3 +1,15 @@
-<p>
-  users-comments works!
-</p>
+<div class="container">
+  <p-dataScroller [value]="commentModel" [rows]="20" [lazy]="true" (onLazyLoad)="loadData($event)">
+    <ng-template let-comment pTemplate="item">
+
+      <div class="commentBody">
+        <div class="commentHeader">
+          <h6 style="margin: 0">{{comment.user.username}} {{comment.creationDate | date: 'dd/MM/yyyy'}}</h6>
+        </div>
+
+        <div [innerHTML]="comment.text" class="commentText"></div>
+      </div>
+
+    </ng-template>
+  </p-dataScroller>
+</div>

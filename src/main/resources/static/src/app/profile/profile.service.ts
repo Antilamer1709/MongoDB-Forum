@@ -4,7 +4,7 @@ import {Http, URLSearchParams} from "@angular/http";
 import {Router} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {environment} from "../../environments/environment";
-import {PostModel} from "../post/post-model";
+import {CommentModel, PostModel} from "../post/post-model";
 
 @Injectable()
 export class ProfileService extends CommonService {
@@ -19,6 +19,20 @@ export class ProfileService extends CommonService {
     params.set('offset', offset);
 
     return this.http.get(environment.baseUrl + '/profile/posts/' + username,
+      {
+        headers: this.getHeaders(),
+        search: params
+      })
+      .map(this.extractData)
+      .catch((err) => this.handleError(err));
+  }
+
+  getUsersComments(username: string, limit: string, offset: string): Observable<CommentModel[]> {
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('limit', limit);
+    params.set('offset', offset);
+
+    return this.http.get(environment.baseUrl + '/profile/comments/' + username,
       {
         headers: this.getHeaders(),
         search: params

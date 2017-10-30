@@ -1,5 +1,6 @@
 package com.antilamer.mongoDbForum.controller;
 
+import com.antilamer.mongoDbForum.dto.CommentDTO;
 import com.antilamer.mongoDbForum.dto.PostDTO;
 import com.antilamer.mongoDbForum.service.ProfileBO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +18,10 @@ public class ProfileController {
     @RequestMapping(value = "/posts/{username}", method = RequestMethod.GET)
     public List<PostDTO> getUsersPosts(@PathVariable String username, @RequestParam Integer limit, @RequestParam Integer offset){
         return profileBO.getUsersPosts(username, limit, offset);
+    }
+
+    @RequestMapping(value = "/comments/{username}", method = RequestMethod.GET)
+    public List<CommentDTO> getUsersComments(@PathVariable String username, @RequestParam Integer limit, @RequestParam Integer offset){
+        return profileBO.getUsersComments(username, limit, offset);
     }
 }
