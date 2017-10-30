@@ -3,6 +3,7 @@ import {CommonComponent} from "../../common/common-component";
 import {ProfileService} from "../profile.service";
 import {MessageService} from "primeng/components/common/messageservice";
 import {PostModel} from "../../post/post-model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-users-posts',
@@ -15,6 +16,7 @@ export class UsersPostsComponent extends CommonComponent implements OnInit {
   public userPosts: PostModel[];
 
   constructor(messageService: MessageService,
+              private router: Router,
               private profileService: ProfileService) {
     super(messageService);
   }
@@ -32,6 +34,10 @@ export class UsersPostsComponent extends CommonComponent implements OnInit {
         this.handleException(error);
       }
     );
+  }
+
+  public openPost(id: string): void {
+    this.router.navigate(['/post/open/' + id]);
   }
 
 }
