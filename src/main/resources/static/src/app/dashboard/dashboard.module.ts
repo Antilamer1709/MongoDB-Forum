@@ -5,11 +5,13 @@ import {DashboardService} from "./dashboard.service";
 import {PostModule} from "../post/post.module";
 import {RouterModule} from "@angular/router";
 import {DataScrollerModule} from "primeng/primeng";
+import {ProfileModule} from "../profile/profile.module";
 
 @NgModule({
   imports: [
     CommonModule,
     PostModule,
+    ProfileModule,
     RouterModule,
     DataScrollerModule
   ],

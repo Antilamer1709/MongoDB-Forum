@@ -22,15 +22,7 @@ public class DashboardBOImpl implements DashboardBO{
     public List<PostDTO> getPosts(Integer limit, Integer offset) {
         PageRequest pageRequest = new PageRequest(offset/limit, limit, new Sort(Sort.Direction.DESC, "modifiedDate"));
         List<Post> posts = postRepo.findAll(pageRequest).getContent();
-        List<PostDTO> postDTOs = new ArrayList<>();
-
-        posts.forEach(post -> {
-            PostDTO postDTO = new PostDTO();
-            BeanUtils.copyProperties(post, postDTO);
-            postDTOs.add(postDTO);
-        });
-
-        return postDTOs;
+        return ServiceUtils.convertPosts(posts);
     }
 
 }

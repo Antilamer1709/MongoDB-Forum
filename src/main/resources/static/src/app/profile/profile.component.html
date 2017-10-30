@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="marinTop50">
+
+    <p-tabView>
+      <p-tabPanel header="Profile" leftIcon="fa-user">
+        <app-users-profile></app-users-profile>
+      </p-tabPanel>
+      <p-tabPanel header="Posts" leftIcon="fa-newspaper-o">
+        <app-users-posts [username]="username"></app-users-posts>
+      </p-tabPanel>
+      <p-tabPanel header="Comments" leftIcon="fa-comments">
+        <app-users-comments></app-users-comments>
+      </p-tabPanel>
+    </p-tabView>
+
+  </div>
+</div>

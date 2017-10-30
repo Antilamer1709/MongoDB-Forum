@@ -8,11 +8,14 @@ import com.antilamer.mongoDbForum.model.Post;
 import com.antilamer.mongoDbForum.repository.PostRepo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class PostBOImpl implements PostBO {
@@ -74,5 +77,12 @@ public class PostBOImpl implements PostBO {
         post.getComments().add(newCommnet);
         post.setModifiedDate(new Date());
         postRepo.save(post);
+    }
+
+    @Override
+    public List<PostDTO> getUsersPagedPosts(String userId, Integer limit, Integer offset) {
+        PageRequest pageRequest = new PageRequest(offset/limit, limit, new Sort(Sort.Direction.DESC, "modifiedDate"));
+        List<Post> posts = postRepo.findByCreatorId(userId, pageRequest).getContent();
+        return ServiceUtils.convertPosts(posts);
     }
 }

@@ -1,5 +1,5 @@
 <div class="container">
-  <p-dataScroller [value]="posts" [rows]="20" [lazy]="true" (onLazyLoad)="loadData($event)">
+  <p-dataScroller [value]="userPosts" [rows]="20" [lazy]="true" (onLazyLoad)="loadData($event)">
     <ng-template let-post pTemplate="item">
 
       <div class="marinTop50">

@@ -7,6 +7,11 @@
       <img src="assets/images/forum.png" class="forumImage">
     </a>
 
+    <a routerLink="/profile/{{authenticationService.loggedUser.username}}" [routerLinkActive]="'activeLink'"
+       class="btn btn-default menuLink" *ngIf="authenticationService.loggedUser">
+      {{authenticationService.loggedUser.username}}
+    </a>
+
     <a routerLink="/post/new" [routerLinkActive]="'activeLink'"
        class="btn btn-default menuLink" *ngIf="authenticationService.loggedUser">
       <span class="fa fa-plus"></span> Add Post
