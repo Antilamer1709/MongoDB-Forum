@@ -3,7 +3,7 @@
 
     <p-tabView>
       <p-tabPanel header="Profile" leftIcon="fa-user">
-        <app-users-profile></app-users-profile>
+        <app-users-profile [username]="username"></app-users-profile>
       </p-tabPanel>
       <p-tabPanel header="Posts" leftIcon="fa-newspaper-o">
         <app-users-posts [username]="username"></app-users-posts>

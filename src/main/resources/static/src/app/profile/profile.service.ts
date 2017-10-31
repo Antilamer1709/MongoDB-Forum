@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {environment} from "../../environments/environment";
 import {CommentModel, PostModel} from "../post/post-model";
+import {UserModel} from "../app-model";
 
 @Injectable()
 export class ProfileService extends CommonService {
@@ -37,6 +38,12 @@ export class ProfileService extends CommonService {
         headers: this.getHeaders(),
         search: params
       })
+      .map(this.extractData)
+      .catch((err) => this.handleError(err));
+  }
+
+  getUsersProfile(username: string): Observable<UserModel> {
+    return this.http.get(environment.baseUrl + '/profile/profile/' + username, {headers: this.getHeaders()})
       .map(this.extractData)
       .catch((err) => this.handleError(err));
   }

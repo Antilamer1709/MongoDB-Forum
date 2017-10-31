@@ -63,16 +63,8 @@ public class AuthenticationBOImpl implements AuthenticationBO {
         User user = getLoggedUser();
         UserDTO userDTO = new UserDTO();
         if (user != null) {
-            initUserDTO(userDTO, user);
+            ServiceUtils.initUserDTO(userDTO, user);
         }
         return userDTO;
-    }
-
-    private void initUserDTO(UserDTO userDTO, User user) {
-        userDTO.setId(user.getId());
-        userDTO.setUsername(user.getUsername());
-        userDTO.setFullName(user.getFullName());
-        userDTO.setEmail(user.getEmail());
-        userDTO.setRegistrationDate(user.getRegistrationDate());
     }
 }

@@ -189,3 +189,20 @@ label.ui-chkbox-label {
   margin-left: 20px;
   margin-right: 20px;
 }
+
+.floatLeft {
+  float: left;
+}
+.floatRight {
+  float: right;
+}
+
+.profileLabel {
+  float: left;
+  padding: 8px 20px 20px 20px;
+  width: 200px;
+}
+
+.profileText {
+  float: left;
+}

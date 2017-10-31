@@ -1,7 +1,9 @@
 package com.antilamer.mongoDbForum.service;
 
 import com.antilamer.mongoDbForum.dto.PostDTO;
+import com.antilamer.mongoDbForum.dto.UserDTO;
 import com.antilamer.mongoDbForum.model.Post;
+import com.antilamer.mongoDbForum.model.User;
 import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
@@ -19,5 +21,13 @@ public class ServiceUtils {
         });
 
         return postDTOs;
+    }
+
+    public static void initUserDTO(UserDTO userDTO, User user) {
+        userDTO.setId(user.getId());
+        userDTO.setUsername(user.getUsername());
+        userDTO.setFullName(user.getFullName());
+        userDTO.setEmail(user.getEmail());
+        userDTO.setRegistrationDate(user.getRegistrationDate());
     }
 }

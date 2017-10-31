@@ -1,3 +1,43 @@
-<p>
-  users-profile works!
-</p>
+<div class="commentBody">
+  <div class="postHeader">
+    <h2 style="margin: 0">{{user.username}}</h2>
+  </div>
+
+  <div class="commentText">
+    <div class="row">
+      <div class="form-group">
+
+        <label class="profileLabel">Registration date:</label>
+        <div class="profileText">
+          <h4 class="form-control">{{user.registrationDate | date: 'dd/MM/yyyy'}}</h4>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="form-group">
+
+        <label class="profileLabel">Full Name:</label>
+        <div class="profileText">
+          <h4 class="form-control">{{user.fullName}}</h4>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="form-group">
+
+        <label class="profileLabel">Email:</label>
+        <div class="profileText">
+          <h4 class="form-control">{{user.email}}</h4>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

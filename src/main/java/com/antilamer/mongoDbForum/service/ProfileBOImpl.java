@@ -2,6 +2,7 @@ package com.antilamer.mongoDbForum.service;
 
 import com.antilamer.mongoDbForum.dto.CommentDTO;
 import com.antilamer.mongoDbForum.dto.PostDTO;
+import com.antilamer.mongoDbForum.dto.UserDTO;
 import com.antilamer.mongoDbForum.model.User;
 import com.antilamer.mongoDbForum.repository.CommentRepo;
 import com.antilamer.mongoDbForum.repository.UserRepo;
@@ -44,5 +45,13 @@ public class ProfileBOImpl implements ProfileBO {
         return commentRepo.findByCreatorId(user.getId(), pageRequest)
                 .map(CommentDTO::convertToDTO)
                 .getContent();
+    }
+
+    @Override
+    public UserDTO getUsersProfile(String username) {
+        User user = getUserByUsername(username);
+        UserDTO userDTO = new UserDTO();
+        ServiceUtils.initUserDTO(userDTO, user);
+        return userDTO;
     }
 }
